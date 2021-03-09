@@ -32,10 +32,19 @@ namespace TrackerLibrary.DataAccess
         {
 
             List<PrizeModel> output = new List<PrizeModel>();
-            foreach (var item in collection)
+            foreach (string line in lines)
             {
+                string[] cols = line.Split(','); //string splits on ,
 
+                PrizeModel p = new PrizeModel();
+                p.Id = int.Parse(cols[0]); //first column will be an Id
+                p.PlaceNumber = int.Parse(cols[0]);
+                p.PlaceName = cols[2];
+                p.PrizeAmount = decimal.Parse(cols[3]);
+                p.PrizePercentage = double.Parse(cols[4]);
+                output.Add(p);
             }
+            return output;
         }
     }
 }
