@@ -46,5 +46,15 @@ namespace TrackerLibrary.DataAccess
             }
             return output;
         }
+
+        public static void SaveToPrizeFile(this List<PrizeModel> models, string fileName)//this
+        {
+            List<string> lines = new List<string>();
+            foreach (PrizeModel p in models)//convert models to a list of strings
+            {
+                lines.Add($"{ p.Id },{p.PlaceNumber},{ p.PlaceName },{ p.PrizeAmount },{ p.PrizePercentage }");
+            }
+            File.WriteAllLines(fileName.FullFilePath(), lines)//write all the lines to a file;
+        }
     }
 }
