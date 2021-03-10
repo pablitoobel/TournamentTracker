@@ -54,7 +54,7 @@ namespace TrackerLibrary.DataAccess
             {
                 lines.Add($"{ p.Id },{p.PlaceNumber},{ p.PlaceName },{ p.PrizeAmount },{ p.PrizePercentage }");
             }
-            File.WriteAllLines(fileName.FullFilePath(), lines)//write all the lines to a file;
+            File.WriteAllLines(fileName.FullFilePath(), lines);//write all the lines to a file;
         }
     }
 }
