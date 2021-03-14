@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrackerLibrary.Models;
 using TrackerLibrary.DataAccess;
+using TrackerLibrary.DataAccess.TextConnect;
 
 namespace TrackerLibrary.DataAccess
 {
@@ -14,7 +15,13 @@ namespace TrackerLibrary.DataAccess
 
         //comma-separated values file is a delimited text file that uses a comma 
         //to separate values.Each line of the file is a data record.
-        private const string PrizesFile = "PrizeModels.csv"; 
+        private const string PrizesFile = "PrizeModels.csv";
+
+        public PersonModel CreatePerson(PersonModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         public PrizeModel CreatePrize(PrizeModel model)
         {
             //load the text file

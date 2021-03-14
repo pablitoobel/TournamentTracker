@@ -16,8 +16,7 @@ namespace TrackerLibrary
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="database">Stands for SQL</param>
-        /// <param name="textFiles">Stands for TXT File</param>
+        /// <param name="db"></param>
         public static void InitializeConnections(DatabaseType db) //bool bool to enum change
         {
 

@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 using System.IO;
 using TrackerLibrary.Models;
 
-namespace TrackerLibrary.DataAccess
+namespace TrackerLibrary.DataAccess.TextConnect
 {
+    /// <summary>
+    /// Contains extension methods and different namespace to keep those extension methods seperated
+    /// 
+    /// </summary>
     public static class TextConnectorProcessor
     {
         public static string FullFilePath(this string fileName) 
