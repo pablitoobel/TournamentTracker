@@ -50,6 +50,23 @@ namespace TrackerLibrary.DataAccess.TextConnect
             }
             return output;
         }
+        public static List<PersonModel> ConvertToPersonModel(this List<string> lines)
+        {
+            List<PersonModel> output = new List<PersonModel>();
+            foreach (var line in lines)
+            {
+                string[] columns = line.Split(',');
+
+                PersonModel p = new PersonModel();
+                p.Id = int.Parse(columns[0]);
+                p.Firstname = columns[1];
+                p.LastName = columns[2];
+                p.EmailAddres = columns[3];
+                p.PhoneNumber = columns[4];
+                output.Add(p);
+            }
+            return output;
+        }
 
         public static void SaveToPrizeFile(this List<PrizeModel> models, string fileName)//this
         {
@@ -59,6 +76,15 @@ namespace TrackerLibrary.DataAccess.TextConnect
                 lines.Add($"{ p.Id },{p.PlaceNumber},{ p.PlaceName },{ p.PrizeAmount },{ p.PrizePercentage }");
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);//write all the lines to a file;
+        }
+        public static void SaveToPeopleFile(this List<PersonModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+            foreach (var p in models)
+            {
+                lines.Add($"{p.Id },{p.Firstname},{p.LastName},{p.EmailAddres},{p.PhoneNumber}");
+            }
+            File.WriteAllLines(fileName.FullFilePath(), lines);
         }
     }
 }
