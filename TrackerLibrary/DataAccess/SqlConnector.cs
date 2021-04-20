@@ -64,16 +64,20 @@ namespace TrackerLibrary.DataAccess
             }
             return model;
         }
-
+        /// <summary>
+        /// Method get all records from Person table and puts it into a List of PersonModel.
+        /// Method is longer so it is easier to debug.
+        /// </summary>
+        /// <returns>List of persons from database</returns>
         public List<PersonModel> GetPerson_All()
         {
             List<PersonModel> output;
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
             {
-                output = connection.Query
-
+                output = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
 
             }
+            return output;
         }
     }
 }
