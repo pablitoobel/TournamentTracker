@@ -54,5 +54,10 @@ namespace TrackerLibrary.DataAccess
 
             return model; //this model is fully formed with the Id 
         }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
